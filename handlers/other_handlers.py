@@ -1,5 +1,5 @@
 from aiogram import Router, Bot
-from aiogram.types import Message
+from aiogram.types import Message, FSInputFile
 import database.requests as rq
 
 
@@ -23,3 +23,11 @@ async def send_answer(message: Message, bot: Bot):
         print(message.video.file_id)
     if message.photo:
         print(message.photo[-1].file_id)
+    if message.text == '/get_logfile':
+        file_path = "py_log.log"
+        await message.answer_document(FSInputFile(file_path))
+
+    if message.text == '/get_DB':
+        file_path = "database/db.sqlite3"
+        await message.answer_document(FSInputFile(file_path))
+
