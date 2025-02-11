@@ -433,12 +433,12 @@ async def putinbackpack_putinwardrobe_throwout(clb: CallbackQuery):
         #1  из wardrobe удалить значение, которое надевают, для этого удаляем из строки wardrobe выбранный процент вещи. Он в clb
         new_str_put_on = await hf.modify_str_to_str_del_choise_percent_and_null(data_wardrobe[clb_name], str(clb_percent))
         await rq.set_storage_wardrobe(tg_id, clb_name, new_str_put_on)
-        logging.info(f'1 backpack_leana = {(await rq.get_StorageWardrobe(tg_id))['backpack_leana']}')
+        # logging.info(f'1 backpack_leana = {(await rq.get_StorageWardrobe(tg_id))["backpack_leana"]}')
 
         #2 из таблицы user переложить в таблицу wardrobe
         str_put_off = (await rq.get_StorageWardrobe(tg_id))[name_user_table]
         await rq.set_storage_wardrobe(tg_id, name_user_table, str_put_off+"!"+percent_user_table)
-        logging.info(f'2 backpack_leana = {(await rq.get_StorageWardrobe(tg_id))['backpack_leana']}')
+        # logging.info(f'2 backpack_leana = {(await rq.get_StorageWardrobe(tg_id))["backpack_leana"]}')
 
         #3 надеть то, что пришло в колбэке -> записать в таблицу user
         await rq.set_user(tg_id, clb_name_prefix, clb_name+"!"+clb_percent)
