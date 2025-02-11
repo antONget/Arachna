@@ -393,9 +393,9 @@ async def spec7(clb: CallbackQuery):
 
         await clb.message.edit_caption(
             caption=
-                f'Дальний бой {dgd[f'{armor}_battle'][0][0]}\n'
-                f'Средний бой {dgd[f'{armor}_battle'][0][1]}\n'
-                f'Ближний бой {dgd[f'{armor}_battle'][0][2]}\n',
+                f'Дальний бой {dgd[f"{armor}_battle"][0][0]}\n'
+                f'Средний бой {dgd[f"{armor}_battle"][0][1]}\n'
+                f'Ближний бой {dgd[f"{armor}_battle"][0][2]}\n',
             reply_markup=keyboard
         )
 
